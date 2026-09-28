@@ -10,13 +10,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-/**
- * Application settings, bound from the {@code similar-products} prefix.
- *
- * @param lookupTimeout maximum time a client request waits for any single lookup
- * @param upstream      settings of the HTTP client for the existing product APIs
- * @param cache         settings of the product lookups cache
- */
+
 @Validated
 @ConfigurationProperties(prefix = "similar-products")
 public record SimilarProductsProperties(
