@@ -1,0 +1,30 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: similar-products
+
+similar-products:
+  lookup-timeout: 1s
+  upstream:
+    base-url: ${PRODUCT_API_URL:http://localhost:3001}
+    connect-timeout: 500ms
+    response-timeout: 10s
+    max-connections: 500
+    pending-acquire-timeout: 5s
+  cache:
+    max-size: 10000
+    success-ttl: 60s
+    not-found-ttl: 60s
+    error-ttl: 5s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  level:
+    com.nunegal.similarproducts: INFO
